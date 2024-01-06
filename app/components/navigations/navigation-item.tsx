@@ -33,8 +33,10 @@ const NavigationItem: React.FunctionComponent<NavigationItemProps> = ({
         if (!uiStore.ui.expandSidebar && !isMobile) {
           return (
             <QuickTooltip content={label}>
-              <IconButton variant={isActive ? "solid" : "ghost"}>
-                <Icon />
+              <IconButton asChild variant={isActive ? "solid" : "ghost"}>
+                <span>
+                  <Icon></Icon>
+                </span>
               </IconButton>
             </QuickTooltip>
           );
@@ -42,10 +44,13 @@ const NavigationItem: React.FunctionComponent<NavigationItemProps> = ({
 
         return (
           <Button
+            asChild
             className={css({ width: "100%", justifyContent: "left" })}
             variant={isActive ? "solid" : "ghost"}
           >
-            <Icon /> {label}
+            <span>
+              <Icon></Icon> {label}
+            </span>
           </Button>
         );
       }}

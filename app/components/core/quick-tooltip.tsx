@@ -6,7 +6,7 @@ interface QuickTooltipProps extends React.PropsWithChildren {
 
 const QuickTooltip = ({ content, children }: QuickTooltipProps) => (
   <Tooltip.Root>
-    <Tooltip.Trigger>{children}</Tooltip.Trigger>
+    <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
     <Tooltip.Positioner>
       <Tooltip.Arrow>
         <Tooltip.ArrowTip />

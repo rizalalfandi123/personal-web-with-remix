@@ -22,16 +22,12 @@ const initialState: UiStore = {
 
 const useUiStore = create(
   persist<UseUiStore>(
-    (set) => ({
+    (set, get) => ({
       ui: initialState,
       toggleExpandSidebar: () => {
         set(({ ui }) => ({ ui: { ...ui, expandSidebar: !ui.expandSidebar } }));
       },
       toggleDarkMode: () => {
-        const root = document.documentElement;
-
-        root.classList.toggle("dark");
-
         set(({ ui }) => ({ ui: { ...ui, darkMode: !ui.darkMode } }));
       },
       toggleMobileSidebar: (openMobileSidebar) => {

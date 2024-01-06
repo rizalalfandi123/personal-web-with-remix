@@ -8,21 +8,11 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import stylesHref from "~/assets/app.css";
-import { sva } from "styled-system/css";
 import DefaultLayout from "~/components/layout/DefaultLayout";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesHref },
 ];
-
-const styles = sva({
-  slots: ["container", "sidebar", "content"],
-  base: {
-    container: { width: "100dvw", height: "100dvh", display: "flex" },
-    sidebar: { flexShrink: 0, width: "240px", padding: "16px 8px" },
-    content: { flexGrow: 1 },
-  },
-})();
 
 export default function App() {
   return (
