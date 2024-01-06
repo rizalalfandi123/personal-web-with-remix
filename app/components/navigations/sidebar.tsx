@@ -1,17 +1,10 @@
-import { FileText, Menu, Newspaper, Phone, User } from "lucide-react";
+import { Menu } from "lucide-react";
 
 import SidebarList from "~/components/navigations/sidebar-list";
-import { type NavigationItemProps } from "~/components/navigations/navigation-item";
 import { sva } from "styled-system/css";
 import { IconButton } from "~/components/core/icon-button";
 import useUiStore from "~/stores/ui-store";
-
-const sidebarList: Array<NavigationItemProps> = [
-  { icon: User, label: "About Me", to: "/" },
-  { icon: Newspaper, label: "Blog", to: "/blog" },
-  { icon: FileText, label: "Cerificates", to: "/certificates" },
-  { icon: Phone, label: "Contacts", to: "/contacts" },
-];
+import sidebarList from "~/consts/sidebar-list";
 
 const styles = sva({
   slots: ["brand", "brand-name"],

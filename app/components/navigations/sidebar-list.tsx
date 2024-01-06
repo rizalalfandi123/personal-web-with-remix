@@ -5,12 +5,13 @@ import NavigationItem, {
 
 const SidebarList: React.FunctionComponent<{
   list: Array<NavigationItemProps>;
-}> = ({ list }) => {
+  isMobile?: boolean
+}> = ({ list, isMobile = false }) => {
   return (
     <ul>
       <li className={stack({ gap: "2" })}>
         {list.map((item) => {
-          return <NavigationItem {...item} key={item.label} />;
+          return <NavigationItem isMobile={isMobile} {...item} key={item.label} />;
         })}
       </li>
     </ul>

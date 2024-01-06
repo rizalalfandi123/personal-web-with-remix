@@ -1,5 +1,4 @@
 import { sva } from "styled-system/css";
-import { container } from "styled-system/patterns";
 import Sidebar from "~/components/navigations/sidebar";
 import useUiStore from "~/stores/ui-store";
 import Header from "../navigations/header";
@@ -14,6 +13,7 @@ const styles = sva({
       fontFamily: '"Inter", sans',
     },
     sidebar: {
+      display: 'none',
       flexShrink: 0,
       width: "260px",
       padding: "16px 8px",
@@ -29,6 +29,10 @@ const styles = sva({
           display: "none",
         },
       },
+
+      lg: {
+        display: 'block'
+      }
     },
     main: { flexGrow: 1, height: "100%", paddingX: "8px" },
     header: {
