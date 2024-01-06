@@ -11,6 +11,7 @@ const styles = sva({
       height: "100dvh",
       display: "flex",
       fontFamily: '"Inter", sans',
+      WebkitTapHighlightColor: 'transparent'
     },
     sidebar: {
       display: 'none',
