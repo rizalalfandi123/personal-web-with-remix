@@ -1,4 +1,3 @@
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 import {
   Links,
@@ -8,14 +7,26 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import stylesHref from "~/assets/app.css";
+import { sva } from "styled-system/css";
+import DefaultLayout from "~/components/layout/DefaultLayout";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  { rel: "stylesheet", href: stylesHref },
 ];
+
+const styles = sva({
+  slots: ["container", "sidebar", "content"],
+  base: {
+    container: { width: "100dvw", height: "100dvh", display: "flex" },
+    sidebar: { flexShrink: 0, width: "240px", padding: "16px 8px" },
+    content: { flexGrow: 1 },
+  },
+})();
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,7 +34,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <DefaultLayout>
+          <Outlet />
+        </DefaultLayout>
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
